@@ -27,11 +27,20 @@ class MyApp extends StatelessWidget {
         SizedBox(
           height: 300,
           child: Card(
+            margin: EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
-              Text('Bolo de Cenoura'),
-              Image.network('https://th.bing.com/th/id/Rfee9dd5e44f3b576103b95a4ae3421c7?rik=ZuM5ZoYkcq3NeA&riu=http%3a%2f%2fimg.itdg.com.br%2fimages%2frecipes%2f000%2f188%2f775%2f279323%2f279323_original.jpg&ehk=iOg74%2bcedsS%2bqD%2f7wv25PsTZ6Ax3a0sP8opRLt7hURk%3d&risl=&pid=ImgRaw')
-          ],
+                Stack(
+                  children: <Widget>[ 
+                      Image.asset('assets/images/bolo-cenoura.jpeg', fit: BoxFit.fill, height: 280,),
+                      Positioned(
+                        bottom: 10,
+                        left: 10,
+                        child: Text('Bolo de Cenoura', style: TextStyle(fontSize: 25, color: Colors.white),),
+                      )
+                  ],
+                )
+              ],
           ),
       )),
       appBar: AppBar(title: Text('Cozinhando em Casa')),
