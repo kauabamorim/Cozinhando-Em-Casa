@@ -1,13 +1,13 @@
 class Receita {
-  String titulo;
-  String foto;
-  String porcoes;
-  String tempoPreparo;
-  String ingredientes;
-  String modoPreparo;
+  String? titulo;
+  String? foto;
+  String? porcoes;
+  String? tempoPreparo;
+  String? ingredientes;
+  String? modoPreparo;
 
   Receita(
-      {this.titulo,
+      {required this.titulo,
         this.foto,
         this.porcoes,
         this.tempoPreparo,
