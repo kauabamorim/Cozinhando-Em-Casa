@@ -1,6 +1,9 @@
+import 'package:cozinhando_casa/telas/detalhes/detalhes.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../../modelos/receita.dart';
+import '../detalhes/detalhes.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -41,7 +44,13 @@ class HomeState extends State<Home> {
   }
 
   Widget _construirCard(titulo, foto) {
-    return SizedBox(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => Detalhes()
+        ));
+      },
+      child: SizedBox(
         height: 300,
         child: Card(
           margin: EdgeInsets.all(10),
@@ -56,13 +65,19 @@ class HomeState extends State<Home> {
               )
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _construirGradienteCard() {
     return Container(
       height: 280,
-      decoration: BoxDecoration(gradient: LinearGradient(begin: FractionalOffset.topCenter, end: FractionalOffset.bottomCenter, colors: [Colors.transparent, Colors.purple.withOpacity(0.8)])),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomCenter,
+              colors: [Colors.transparent, Colors.purple.withOpacity(0.8)])),
     );
   }
 
