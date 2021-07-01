@@ -50,12 +50,20 @@ class HomeState extends State<Home> {
               Stack(
                 children: <Widget>[
                   _construirImagemCard(foto),
+                  _construirGradienteCard(),
                   _construirTextoCard(titulo)
                 ],
               )
             ],
           ),
         ));
+  }
+
+  Widget _construirGradienteCard() {
+    return Container(
+      height: 280,
+      decoration: BoxDecoration(gradient: LinearGradient(begin: FractionalOffset.topCenter, end: FractionalOffset.bottomCenter, colors: [Colors.transparent, Colors.purple.withOpacity(0.8)])),
+    );
   }
 
   Widget _construirTextoCard(titulo) {
