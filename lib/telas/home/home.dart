@@ -4,7 +4,6 @@ import 'dart:convert';
 import '../../modelos/receita.dart';
 import '../detalhes/detalhes.dart';
 
-
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -36,19 +35,22 @@ class HomeState extends State<Home> {
             itemBuilder: (BuildContext context, int index) {
               Receita receita = Receita.fromJson(receitas[index]);
 
-              return _construirCard(receita.titulo, receita.foto);
+              return _construirCard(receita);
             },
             itemCount: receitas == null ? 0 : receitas.length,
           );
         });
   }
 
-  Widget _construirCard(titulo, foto) {
+  Widget _construirCard(receita) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) => Detalhes()
-        ));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Detalhes(
+                      receita: receita,
+                    )));
       },
       child: SizedBox(
         height: 300,
@@ -58,9 +60,9 @@ class HomeState extends State<Home> {
             children: <Widget>[
               Stack(
                 children: <Widget>[
-                  _construirImagemCard(foto),
+                  _construirImagemCard(receita.foto),
                   _construirGradienteCard(),
-                  _construirTextoCard(titulo)
+                  _construirTextoCard(receita.titulo)
                 ],
               )
             ],
